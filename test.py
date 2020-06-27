@@ -7,6 +7,6 @@ mydb = mysql.connector.connect(
   database="mydatabase"
 )
 mycursor = mydb.cursor()
-mycursor.execute("UPDATE participants SET score='120' where name='anshika'")
-mydb.commit()
-print(mycursor.rowcount,"record affected")
+mycursor.execute("select name,score from mydatabase.participants order by score desc;")
+result=mycursor.fetchone()
+print(result[0])
